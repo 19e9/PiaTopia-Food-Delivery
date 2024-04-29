@@ -45,5 +45,35 @@
     font-size: 22px;
     font-weight: 500;
     margin: 10px 0px;
-    font-family: "Outfit", sans-serif;
+    font-family: "Outfit",sans-serif;
 }
+
+.food-item-img-container{
+    position: relative;
+}
+
+.food-item-img-container .add{
+    width: 35px;
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.food-item-counter{
+    position: absolute;
+    bottom: 10px;
+    right: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 6px;
+    border-radius: 50px;
+    background-color: white;
+}
+
+.food-item-counter img{
+    width: 30px;
+}
+
