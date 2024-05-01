@@ -7,7 +7,7 @@ const Footer = () => {
         <div className='footer' id='footer'>
             <div className="footer-content">
                 <div className="footer-content-left">
-                    <img src={assets.logo} alt="logo" />
+                    <img src={assets.logo_for_footer} alt="logo-for-footer" />
                     <p>2024 yılının Hazıran ayında hizmetinize giren Pietopia Restaurant her geçen gün sizlere daha da kaliteli hizmet vermeyi görev bilen deneyimli ekibi ile Samsun'da yeme- içme kültürü ve alışkanlıklarını değiştiren işletme politikası ile eğlence anlayışına yeni bir bakış açısı getirmek istiyor.</p>
                     <div className="footer-soical-icons">
                         <img src={assets.facebook_icon} alt="facebook" />
