@@ -16,12 +16,12 @@ const Footer = () => {
                     </div>
                 </div>
                 <div className="footer-content-center">
-                    <h2>Company</h2>
+                    <h2>Hızlı Erişim Menüsü</h2>
                     <ul>
-                      <li>AnaSayfa</li>
-                    <li>Hakkımızda</li>
-                    <li>Kullanım koşulları</li>
-                    <li>Gizlilik politikası</li>  
+                        <li>AnaSayfa</li>
+                        <li>Hakkımızda</li>
+                        <li>Kullanım koşulları</li>
+                        <li>Gizlilik politikası</li>
                     </ul>
                 </div>
                 <div className="footer-content-right">
