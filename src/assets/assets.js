@@ -10,6 +10,11 @@ import menu_5 from './menu_5.png'
 import menu_6 from './menu_6.png'
 import menu_7 from './menu_7.png'
 import menu_8 from './menu_8.png'
+import menu_9 from './menu_9.png'
+import menu_10 from './menu_10.png'
+import menu_11 from './menu_11.png'
+import menu_12 from './menu_12.png'
+import menu_13 from './menu_13.png'
 
 import food_1 from './food_1.png'
 import food_2 from './food_2.png'
@@ -43,6 +48,8 @@ import food_29 from './food_29.png'
 import food_30 from './food_30.png'
 import food_31 from './food_31.png'
 import food_32 from './food_32.png'
+import burger_1 from './burger_1.png'
+import burger_2 from './burger_2.png'
 
 import add_icon_white from './add_icon_white.png'
 import add_icon_green from './add_icon_green.png'
@@ -84,36 +91,56 @@ export const assets = {
 
 export const menu_list = [
     {
-        menu_name: "Salata",
+        menu_name: "Burger",
         menu_image: menu_1
     },
     {
-        menu_name: "Rul",
+        menu_name: "Tost",
         menu_image: menu_2
     },
     {
-        menu_name: "Tatlı",
+        menu_name: "Pizza",
         menu_image: menu_3
     },
     {
-        menu_name: "Sandviç",
+        menu_name: "Pilav",
         menu_image: menu_4
     },
     {
-        menu_name: "Pasta",
+        menu_name: "Tavuk",
         menu_image: menu_5
     },
     {
-        menu_name: "Ev Yemekleri",
+        menu_name: "Köfte",
         menu_image: menu_6
     },
     {
-        menu_name: "Makarna",
+        menu_name: "Steak",
         menu_image: menu_7
     },
     {
-        menu_name: "Noodles",
+        menu_name: "Makarna",
         menu_image: menu_8
+    },
+    {
+        menu_name: "Balık",
+        menu_image: menu_9
+    },
+    {
+        menu_name: "Salata",
+        menu_image: menu_10
+    },
+    {
+        menu_name: "Tatlı",
+        menu_image: menu_11
+    },
+    {
+        menu_name: "Soğuk İçecekler",
+        menu_image: menu_12
+    },
+    {
+        menu_name: "Sıcak İçecekler",
+        menu_image: menu_13
     }]
 
 export const food_list = [
@@ -123,7 +150,7 @@ export const food_list = [
         image: food_1,
         price: 12,
         description: "Food provides essential nutrients for overall health and well-being",
-        category: "Salad"
+        category: "Salata"
     },
     {
         _id: "2",
@@ -131,77 +158,77 @@ export const food_list = [
         image: food_2,
         price: 18,
         description: "Food provides essential nutrients for overall health and well-being",
-        category: "Salad"
+        category: "Salata"
     }, {
         _id: "3",
         name: "Clover Salad",
         image: food_3,
         price: 16,
         description: "Food provides essential nutrients for overall health and well-being",
-        category: "Salad"
+        category: "Salata"
     }, {
         _id: "4",
         name: "Chicken Salad",
         image: food_4,
         price: 24,
         description: "Food provides essential nutrients for overall health and well-being",
-        category: "Salad"
+        category: "Salata"
     }, {
         _id: "5",
         name: "Lasagna Rolls",
         image: food_5,
         price: 14,
         description: "Food provides essential nutrients for overall health and well-being",
-        category: "Rolls"
+        category: "Sandviç"
     }, {
         _id: "6",
         name: "Peri Peri Rolls",
         image: food_6,
         price: 12,
         description: "Food provides essential nutrients for overall health and well-being",
-        category: "Rolls"
+        category: "Sandviç"
     }, {
         _id: "7",
         name: "Chicken Rolls",
         image: food_7,
         price: 20,
         description: "Food provides essential nutrients for overall health and well-being",
-        category: "Rolls"
+        category: "Sandviç"
     }, {
         _id: "8",
         name: "Veg Rolls",
         image: food_8,
         price: 15,
         description: "Food provides essential nutrients for overall health and well-being",
-        category: "Rolls"
+        category: "Sandviç"
     }, {
         _id: "9",
         name: "Ripple Ice Cream",
         image: food_9,
         price: 14,
         description: "Food provides essential nutrients for overall health and well-being",
-        category: "Deserts"
+        category: "Tatlı"
     }, {
         _id: "10",
         name: "Fruit Ice Cream",
         image: food_10,
         price: 22,
         description: "Food provides essential nutrients for overall health and well-being",
-        category: "Deserts"
+        category: "Tatlı"
     }, {
         _id: "11",
         name: "Jar Ice Cream",
         image: food_11,
         price: 10,
         description: "Food provides essential nutrients for overall health and well-being",
-        category: "Deserts"
+        category: "Tatlı"
     }, {
         _id: "12",
         name: "Vanilla Ice Cream",
         image: food_12,
         price: 12,
         description: "Food provides essential nutrients for overall health and well-being",
-        category: "Deserts"
+        category: "Tatlı"
     },
     {
         _id: "13",
@@ -209,7 +236,7 @@ export const food_list = [
         image: food_13,
         price: 12,
         description: "Food provides essential nutrients for overall health and well-being",
-        category: "Sandwich"
+        category: "Tost"
     },
     {
         _id: "14",
@@ -217,21 +244,21 @@ export const food_list = [
         image: food_14,
         price: 18,
         description: "Food provides essential nutrients for overall health and well-being",
-        category: "Sandwich"
+        category: "Tost"
     }, {
         _id: "15",
         name: "Grilled Sandwich",
         image: food_15,
         price: 16,
         description: "Food provides essential nutrients for overall health and well-being",
-        category: "Sandwich"
+        category: "Tost"
     }, {
         _id: "16",
         name: "Bread Sandwich",
         image: food_16,
         price: 24,
         description: "Food provides essential nutrients for overall health and well-being",
-        category: "Sandwich"
+        category: "Tost"
     }, {
         _id: "17",
         name: "Cup Cake",
@@ -346,5 +373,21 @@ export const food_list = [
         price: 15,
         description: "Food provides essential nutrients for overall health and well-being",
         category: "Noodles"
+    },
+    {
+        _id: "33",
+        name: "BBQ Burger",
+        image: burger_1,
+        price: 220,
+        description: "Burger köftesi, füme dana eti, Amerikan barbekü sos, cheddar peyniri, karamelize soğan, jalapeno biberi, marul",
+        category: "Burger"
+    },
+    {
+        _id: "34",
+        name: "Tavuk Burger",
+        image: burger_2,
+        price: 140,
+        description: "Tavuk pirzola, cheddar peyniri, Alman turşusu, marul, burger sos",
+        category: "Burger"
     }
 ]
