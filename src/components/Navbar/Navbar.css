@@ -14,7 +14,7 @@
     display: flex;
     list-style: none;
     gap: 20px;
-    color: #49557e;
+    color: #000000;
     font-size: 18px;
 }
 
@@ -27,7 +27,7 @@
 .navbar button{
     background-color: transparent;
     font-size: 16px;
-    color: #49557e;
+    color: black;
     border: 1px solid #FF004D;
     padding: 10px 30px;
     border-radius: 50px;
@@ -41,7 +41,7 @@
 
 .navbar .active{
     padding: 2px;
-    border-bottom: 2px solid #49557e;
+    border-bottom: 2px solid #FF004D;
 }
 
 .navbar-search-icon{

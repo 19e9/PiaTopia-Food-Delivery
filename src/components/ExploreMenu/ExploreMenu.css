@@ -38,7 +38,7 @@
 
 .explore-menu-list-item p{
     margin-top: 10px;
-    color: #747474;
+    color: black;
     font-size: max(1.4vw,16px);
     cursor: pointer;
 }
