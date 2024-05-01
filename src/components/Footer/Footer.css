@@ -46,3 +46,21 @@
     background-color: white;
     border: none;
 }
+
+@media (max-width:750px) {
+    .footer-content{
+        display: flex;
+        flex-direction: column;
+        gap: 35px;
+    }
+    .footer-content-right{
+        text-align: center;
+        align-items: center;
+    }
+    .footer-content-left{
+        align-items: center;
+    }
+    .footer-content-center{
+        align-items: center;
+    }
+}
