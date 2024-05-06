@@ -1,18 +1,25 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Navbar from './components/Navbar/Navbar'
 import Home from './pages/Home/Home'
 import Cart from './pages/Cart/Cart'
 import PlaceOrder from './pages/PlaceOrder/PlaceOrder'
 import Footer from './components/Footer/Footer'
 import { Route, Routes } from 'react-router-dom'
+import LoginPopup from './components/LoginPopup/LoginPopup'
 
 
 const App = () => {
+
+  const [showLogin,setShowLogin] = useState(false)
   return (
     // Footer'de components'ta bir hata vermemsi için bir tane boş tag açtım bütün tagları orda aktardım.
+    
     <>
+    {/* showLogin isimli bir boolean değer true ise, <LoginPopup/> bileşenini ekranda gösterir, aksi halde boş bir HTML parçası (<></>) gösterilir */}
+    {showLogin?<LoginPopup setShowLogin={setShowLogin}/>:<></>}
+
       <div className='app'>
-        <Navbar />
+        <Navbar setShowLogin={setShowLogin}/>
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/cart' element={<Cart />} />
