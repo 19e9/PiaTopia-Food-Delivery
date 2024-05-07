@@ -32,8 +32,9 @@ const LoginPopup = ({ setShowLogin }) => {
 
                     <input type="email" placeholder='E-posta' required />
                     <input type="password" placeholder='Şifre' required />
+                    <button>{currState === "Üye Ol" ? "Üye Ol" : "Girişyap"}</button>
                 </div>
-                <button>{currState === "Üye Ol" ? "Üye Ol" : "Girişyap"}</button>
+                
                 <div className="login-popup-condition">
                     <input type="checkbox" required />
                     <p>Kullanım koşullarını ve gizlilik politikasını kabul ediyorum.</p>
