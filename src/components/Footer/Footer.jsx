@@ -4,7 +4,7 @@ import { assets } from '../../assets/assets'
 
 const Footer = () => {
     return (
-        <div className='footer' id='footer'>
+        <footer className='footer' id='footer'>
             <div className="footer-content">
                 <div className="footer-content-left">
                     <img src={assets.logo_for_footer} alt="logo-for-footer" />
@@ -20,6 +20,7 @@ const Footer = () => {
                     <ul>
                         <li>AnaSayfa</li>
                         <li>Hakkımızda</li>
+                        <li>KVKK</li>
                         <li>Kullanım koşulları</li>
                         <li>Gizlilik politikası</li>
                     </ul>
@@ -34,7 +35,7 @@ const Footer = () => {
             </div>
             <hr />
             <p className="footer-copyright">Copyright © PieTopia 2024. Tüm hakları saklıdır.</p>
-        </div>
+        </footer>
     )
 }
 
