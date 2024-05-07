@@ -41,7 +41,7 @@ const LoginPopup = ({ setShowLogin }) => {
                 </div>
                 {currState === "Girişyap"
                     ? <p>Üye Olmak İstiyor musunuz ? <span onClick={() => setCurrState("Üye Ol")}>Üye Ol</span></p>
-                    : <p>Zaten hesapım var <span onClick={() => setCurrState("Girişyap")}>Girişyap</span></p>
+                    : <p>Hesapınız varsa ?  <span onClick={() => setCurrState("Girişyap")}>Girişyap</span></p>
                 }
             </form>
         </div>
