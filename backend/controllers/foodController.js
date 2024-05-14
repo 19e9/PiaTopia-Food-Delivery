@@ -18,10 +18,10 @@ const addFood = async (req,res) => {
     })
     try {
         await food.save();
-        res.json({success:true,message:"Ürün Eklendi"})
+        res.json({success:true,message:"Ürün başarıyla eklendi"})
     } catch (error) {
         console.log(error)
-        res.json({success:false,message:"Üzgünüm ürün eklenmedi!"})
+        res.json({success:false,message:"Üzgünüm ürün eklenemedi, bir hata oluştu!"})
     }
 }
 
@@ -44,9 +44,9 @@ const removeFood = async (req,res) => {
         fs.unlink(`uploads/${food.image}`,()=>{})
 
         await foodModel.findByIdAndDelete(req.body.id); 
-        res.json({success:true,message:"Yemek Başarıyla Silindi"})
+        res.json({success:true,message:"Ürün başarıyla silindi"})
     } catch (error) {
-        console.log({success:false,message:"Üzgünüm bir hata oluştu"})
+        console.log({success:false,message:"Üzgünüm ürün silinemedi, bir hata oluştu !"})
     }
 }
 
