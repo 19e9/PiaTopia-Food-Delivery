@@ -7,23 +7,31 @@ import Footer from './components/Footer/Footer'
 import { Route, Routes } from 'react-router-dom'
 import LoginPopup from './components/LoginPopup/LoginPopup'
 
-
 const App = () => {
 
-  const [showLogin,setShowLogin] = useState(false)
+  const [showLogin, setShowLogin] = useState(false)
+  const [currentId, SetCurrentId] = useState(null)
+
   return (
+
     // Footer'de components'ta bir hata vermemsi için bir tane boş tag açtım bütün tagları orda aktardım.
-    
+
     <>
-    {/* showLogin isimli bir boolean değer true ise, <LoginPopup/> bileşenini ekranda gösterir, aksi halde boş bir HTML parçası (<></>) gösterilir */}
-    {showLogin?<LoginPopup setShowLogin={setShowLogin}/>:<></>}
+      {/* showLogin isimli bir boolean değer true ise, <LoginPopup/> bileşenini ekranda gösterir, aksi halde boş bir HTML parçası (<></>) gösterilir */}
+      {showLogin ? <LoginPopup setShowLogin={setShowLogin} /> : <></>}
 
       <div className='app'>
-        <Navbar setShowLogin={setShowLogin}/>
+        <Navbar setShowLogin={setShowLogin} />
         <Routes>
-          <Route path='/' element={<Home />} />
+          {/*<Route path='/' element={<Home />} />}
+          
+          {/* Masa No */}
+          {Array.from({ length: 10 }, (_, i) => (
+            <Route key={i + 1} path={`/masa/:massId`} element={<Home  currentId={currentId} SetCurrentId={SetCurrentId}/>} />
+          ))}
+          
           <Route path='/cart' element={<Cart />} />
-          <Route path='/order' element={<PlaceOrder />} />
+          <Route path='/order' element={<PlaceOrder currentId={currentId} SetCurrentId={SetCurrentId}/>} />
         </Routes>
       </div>
       <Footer />

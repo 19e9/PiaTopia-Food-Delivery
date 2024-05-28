@@ -1,14 +1,20 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './Home.css'
 import Header from '../../components/Header/Header'
 import ExploreMenu from '../../components/ExploreMenu/ExploreMenu'
 import FoodDisplay from '../../components/FoodDisplay/FoodDisplay'
 import AppDownload from '../../components/AppDownload/AppDownload'
+import { useParams } from 'react-router-dom'
 
-const Home = () => {
-
+const Home = ({SetCurrentId}) => {
     const [category,setCategory] = useState("All")
-
+    const {massId} = useParams();
+    useEffect(() => {
+      SetCurrentId(massId)
+  }, [massId, SetCurrentId])
+    //SetCurrentId(massId)
+    //useEffect
+    console.log(massId) // 
   return (
     <div>
         <Header/>
@@ -19,4 +25,4 @@ const Home = () => {
   )
 }
 
-export default Home
+export default Home;
