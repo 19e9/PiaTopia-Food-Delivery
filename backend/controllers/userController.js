@@ -26,9 +26,9 @@ const loginUser = async (req, res) => {
     }
 };
 
-const createToken = (id) => {
-    return jwt.sign({id},process.env.JWT_SECRET)
-}
+    const createToken = (id) => {
+        return jwt.sign({id},process.env.JWT_SECRET, { expiresIn: '30m' }); // 15 dakikalık erişim tokenı
+    }
 
 // Register user
 const registerUser = async (req, res) => {
