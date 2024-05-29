@@ -9,7 +9,7 @@ const LoginPopup = ({ setShowLogin }) => {
 
     const {url,setToken} = useContext(StoreContext)
 
-    const [currState, setCurrState] = useState("Girişyap")
+    const [currState, setCurrState] = useState("login")
 
     const [phoneValue, setPhoneValue] = useState('');
     
@@ -29,7 +29,7 @@ const LoginPopup = ({ setShowLogin }) => {
     const onLogin = async (event) => {
         event.preventDefault()
         let newUrl =  url;
-        if (currState==="Login") {
+        if (currState==="login") {
             newUrl += "/api/user/login"
         }
         else{
@@ -52,13 +52,13 @@ const LoginPopup = ({ setShowLogin }) => {
         <div className='login-popup'>
             <form onSubmit={onLogin} className='login-popup-container'>
                 <div className="login-popup-title">
-                    <h2>{currState}</h2>
+                <h2>{currState === "login" ? "Giriş Yap" : "Üye Ol"}</h2>
                     <img onClick={() => setShowLogin(false)} src={assets.cross_icon} />
                 </div>
                 <div className="login-popup-inputs">
-                    {currState === "Girişyap" ? <></> : <input type='text' name='name' onChange={onChangeHandler} value={data.name} placeholder='Adınız' required />}
+                    {currState === "login" ? <></> : <input type='text' name='name' onChange={onChangeHandler} value={data.name} placeholder='Adınız' required />}
 
-                    {currState === "Girişyap" ? <></> : <input
+                    {currState === "login" ? <></> : <input
                         name='phone'
                         onChange={onChangeHandler}
                         value={data.phone}
@@ -75,16 +75,18 @@ const LoginPopup = ({ setShowLogin }) => {
 
                     <input type="email" name='email' onChange={onChangeHandler} value={data.email} placeholder='E-posta' required />
                     <input type="password" name='password' onChange={onChangeHandler} value={data.password} placeholder='Şifre' required />
-                    <button type='submit'>{currState === "Üye Ol" ? "Üye Ol" : "Girişyap"}</button>
+                    <button type='submit'>{currState === "register" ? "Üye Ol" : "Girişyap"}</button>
                 </div>
                 
-                <div className="login-popup-condition">
-                    <input type="checkbox" required />
-                    <p>Kullanım koşullarını ve gizlilik politikasını kabul ediyorum.</p>
-                </div>
-                {currState === "Girişyap"
-                    ? <p>Üye Olmak İstiyor musunuz ? <span onClick={() => setCurrState("Üye Ol")}>Üye Ol</span></p>
-                    : <p>Hesapınız varsa ?  <span onClick={() => setCurrState("Girişyap")}>Girişyap</span></p>
+                {currState !== "login" && (
+                    <div className="login-popup-condition">
+                        <input type="checkbox" required />
+                        <p>Kullanım koşullarını ve gizlilik politikasını kabul ediyorum.</p>
+                    </div>
+                )}
+                {currState === "login"
+                    ? <p>Üye Olmak İstiyor musunuz ? <span onClick={() => setCurrState("register")}>Üye Ol</span></p>
+                    : <p>Hesapınız varsa ?  <span onClick={() => setCurrState("login")}>Girişyap</span></p>
                 }
             </form>
         </div>
