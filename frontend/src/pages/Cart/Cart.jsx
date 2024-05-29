@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom'
 
 const Cart = () => {
 
-  const { cartItems, food_list, removeFromCart, getTotalCartAmount } = useContext(StoreContext)
+  const { cartItems, food_list, removeFromCart, getTotalCartAmount, url } = useContext(StoreContext)
   const navigate = useNavigate();
 
   return (
@@ -26,7 +26,7 @@ const Cart = () => {
             return (
               <div>
                 <div className='cart-items-title cart-items-item'>
-                  <img src={item.image} />
+                  <img src={url+"/images/"+item.image} />
                   <p>{item.name}</p>
                   <p>{item.price} ₺</p>
                   <p>{cartItems[item._id]}</p>
@@ -45,17 +45,17 @@ const Cart = () => {
           <h2>Sipariş Özeti</h2>
           <div>
             <div className="cart-total-details">
-              <p>Ürün Toplamı (KDV Hariç)</p>
-              <p>{getTotalCartAmount()}</p>
+              <p>Ürün Fiyatı </p>
+              <p>{(getTotalCartAmount()*0.82).toFixed(2)}</p>
             </div>
             <div className="cart-total-details">
-              <p>KDV Oranı</p>
-              <p>% 20</p>
+              <p>KDV</p>
+              <p>{(getTotalCartAmount()*0.18).toFixed(2)}</p>
             </div>
             <div className="cart-total-details">
               <p>Toplam</p>
               
-              <p>{(getTotalCartAmount() * 1.20).toFixed(2)} ₺</p>
+              <p>{(getTotalCartAmount()).toFixed(2)} ₺</p>
             </div>
           </div>
           <button onClick={() => navigate('/order')}>Sepeti Onayla</button>

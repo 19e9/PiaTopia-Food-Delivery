@@ -13,6 +13,8 @@
 .food-item-image{
     width: 100%;
     border-radius: 15px 15px 0px 0px;
+    /*  Bütün resimleri sabit bouyta alır w360 h280  */
+    aspect-ratio: 9/7;
 }
 
 .food-item-info{
