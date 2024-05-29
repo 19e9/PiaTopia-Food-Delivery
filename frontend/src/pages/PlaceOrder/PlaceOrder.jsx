@@ -1,9 +1,10 @@
 import React, { useContext } from "react";
 import "./PlaceOrder.css";
-import { StoreContext } from "../../context/StoreContext";
+import {StoreContext} from "../../context/StoreContext";
 
 const PlaceOrder = ({ currentId }) => {
   const { getTotalCartAmount } = useContext(StoreContext);
+
   return (
     <form className="place-order">
       <div className="place-order-left">

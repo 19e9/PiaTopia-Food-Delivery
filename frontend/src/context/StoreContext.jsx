@@ -8,6 +8,8 @@ const StoreContextProvider = (props) => {
     const [cartItems, setCartItems] = useState({});
     const url = "http://localhost:4000"
     const [token,setToken] = useState("");
+    const [currentId, SetCurrentId] = useState(null) //masa no için
+    //console.log(masaNo)
 
     const addToCart = (itemId) => {
         if (!cartItems[itemId]) {
@@ -43,7 +45,9 @@ const StoreContextProvider = (props) => {
         getTotalCartAmount,
         url,
         token,
-        setToken
+        setToken,
+        currentId,
+        SetCurrentId
     }
 
     return (

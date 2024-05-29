@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import './Home.css'
 import Header from '../../components/Header/Header'
 import ExploreMenu from '../../components/ExploreMenu/ExploreMenu'
@@ -9,12 +9,11 @@ import { useParams } from 'react-router-dom'
 const Home = ({SetCurrentId}) => {
     const [category,setCategory] = useState("All")
     const {massId} = useParams();
-    useEffect(() => {
-      SetCurrentId(massId)
-  }, [massId, SetCurrentId])
-    //SetCurrentId(massId)
-    //useEffect
-    console.log(massId) // 
+    
+  useEffect(() => {
+    SetCurrentId(massId);
+  }, [massId, SetCurrentId]);
+  
   return (
     <div>
         <Header/>
