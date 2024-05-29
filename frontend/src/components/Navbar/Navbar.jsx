@@ -8,7 +8,9 @@ const Navbar = ({setShowLogin}) => {
 
     const [menu,setMenu] = useState("home")
 
-    const {getTotalCartAmount} = useContext (StoreContext);
+    const {getTotalCartAmount, token,setToken} = useContext (StoreContext);
+
+    console.log("token_example",token)
   return (
     <div className='navbar'>
         <Link to='/'><img src={assets.logo} alt="logo" className="logo" /></Link>
@@ -25,7 +27,16 @@ const Navbar = ({setShowLogin}) => {
                 <Link to='/cart'><img src={assets.basket_icon} alt="sepet" /></Link>
                 <div className={getTotalCartAmount()===0?"":"dot"}></div>
             </div>
-            <button onClick={()=>setShowLogin(true)}>Girişyap</button>
+            {!token?<button onClick={()=>setShowLogin(true)}>Giriş yap</button>
+            :<div className='navbar-profile'>
+            <img src={assets.profile_icon} alt="" />
+            <ul className="nav-profile-dropdown">
+                <li><img src={assets.bag_icon} alt="" /><p>Siparişler</p></li>
+                <hr />
+                <li><img src={assets.logout_icon} alt="" /><p>Çıkış yap</p></li>
+            </ul>
+            </div>}
+          
         </div>
     </div>
   )
