@@ -51,8 +51,20 @@ const removeFromCart = async (req,res) => {
 
 
 // fetch user cart data
+// Kullanıcı sepet verilerini çekme
 const getCart = async (req,res) => {
-
+    try {
+        // Kullanıcı verilerini çek
+        let userData = await userModel.findById(req.body.userId);
+        // Sepet verilerini al
+        let cartData = await userData.cartData;
+        // Sepet verilerini gönder
+        res.json({success:true,cartData})
+    } catch (error) {
+        // Hata mesajı gönder ve hatayı konsola yazdır
+        console.log(error);
+        res.json({success:false,message:"Hata oluştu !"})
+    }
 }
 
 export { addToCart, removeFromCart, getCart }
