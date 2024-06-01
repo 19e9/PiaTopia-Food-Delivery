@@ -1,0 +1,11 @@
+.error{
+    font-size: 300px;
+    margin-block-end: 0.25em;
+    text-align: center;
+    font-weight: bold;
+    unicode-bidi: isolate;
+}
+.message{
+    font-size: 40px;
+    text-align: center;
+}
