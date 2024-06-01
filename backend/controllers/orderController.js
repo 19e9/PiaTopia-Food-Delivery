@@ -10,12 +10,19 @@ const placeOrder = async (req,res) => {
     const frontend_url = "http://localhost:5173"
 
     try {
+
+        // amount alanının kontrolü
+        if (!req.body.amount) {
+            return res.status(400).json({ success: false, message: "Amount is required" });
+        }
+
         const newOrder = new orderModel({
             userId:req.body.userId,
             masaNo:req.body.masaNo,
             items:req.body.items,
             amount:req.body.amount
         })
+        
         await newOrder.save();
         await userModel.findByIdAndUpdate(req.body.userId,{cartData:{}});
 
