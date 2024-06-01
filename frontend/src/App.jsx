@@ -11,7 +11,7 @@ import { StoreContext } from "./context/StoreContext";
 const App = () => {
 
   const [showLogin, setShowLogin] = useState(false)
-  const { currentId, SetCurrentId } = useContext(StoreContext);
+  const { currentId, setCurrentId } = useContext(StoreContext); //masa no için
 
 
   return (
@@ -29,11 +29,11 @@ const App = () => {
           
           {/* Masa No */}
           {Array.from({ length: 10 }, (_, i) => (
-            <Route key={i + 1} path={`/masa/:massId`} element={<Home  currentId={currentId} SetCurrentId={SetCurrentId}/>} />
+            <Route key={i + 1} path={`/masa/:massId`} element={<Home  currentId={currentId} setCurrentId={setCurrentId}/>} />
           ))}
           
           <Route path='/cart' element={<Cart />} />
-          <Route path='/order' element={<PlaceOrder currentId={currentId} SetCurrentId={SetCurrentId}/>} />
+          <Route path='/order' element={<PlaceOrder currentId={currentId} setCurrentId={setCurrentId}/>} />
         </Routes>
       </div>
       <Footer />
