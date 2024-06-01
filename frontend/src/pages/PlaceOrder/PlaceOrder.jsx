@@ -1,9 +1,29 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import "./PlaceOrder.css";
-import {StoreContext} from "../../context/StoreContext";
+import { StoreContext } from "../../context/StoreContext";
 
 const PlaceOrder = ({ currentId }) => {
-  const { getTotalCartAmount } = useContext(StoreContext);
+  const { getTotalCartAmount, token, food_list, cartItems, url } =
+    useContext(StoreContext);
+
+  const [data, setData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    masaNo: currentId,
+  });
+
+  const onChangeHandler = (event) => {
+    const name = event.target.name;
+    const value = event.target.value;
+    setData((data) => ({ ...data, [name]: value }));
+  };
+
+  // bilgileri odeme sayfasına göndermek
+  const placeOrder = async(event) => {
+    
+  }
 
   return (
     <form className="place-order">
@@ -11,6 +31,9 @@ const PlaceOrder = ({ currentId }) => {
         <p className="title">Sipariş Bilgileri</p>
         <div className="multi-fields">
           <input
+            name="firstName"
+            onChange={onChangeHandler}
+            value={data.firstName}
             type="text"
             placeholder="Adınız"
             maxLength="15"
@@ -22,9 +45,12 @@ const PlaceOrder = ({ currentId }) => {
             }}
           />
           <input
+          name="lastName"
+          onChange={onChangeHandler}
+          value={data.lastName}
             type="text"
             placeholder="Soyadınız"
-            maxLength="10"
+            maxLength="20"
             onKeyPress={(e) => {
               const allowedChars = /[a-zA-ZçÇöÖüÜıİğĞşŞ.,\s]/;
               if (!allowedChars.test(e.key)) {
@@ -34,8 +60,11 @@ const PlaceOrder = ({ currentId }) => {
           />
         </div>
         <div className="multi-fields">
-          <input type="text" placeholder="E-posta" />
+          <input name="email" onChange={onChangeHandler} value={data.email} type="text" placeholder="E-posta" />
           <input
+            name="phone"
+            onChange={onChangeHandler}
+            value={data.phone}
             type="tel"
             placeholder="Telefon Numaranız"
             maxLength="11"
@@ -53,9 +82,10 @@ const PlaceOrder = ({ currentId }) => {
         </div>
         <div className="multi-fields">
           <input
+          name="masaNo"
             type="text"
             placeholder="Masa No"
-            value={`Masa No: ${currentId}`}
+            value={`Masa No: ${data.masaNo}`}
             style={{ textAlign: "center" }}
             disabled
             readOnly
@@ -68,17 +98,17 @@ const PlaceOrder = ({ currentId }) => {
           <h2>Sipariş Özeti</h2>
           <div>
             <div className="cart-total-details">
-              <p>Ürün Toplamı (KDV Hariç)</p>
-              <p>{getTotalCartAmount()}</p>
+              <p>Ürün Fiyatı </p>
+              <p>{(getTotalCartAmount() * 0.82).toFixed(2)}</p>
             </div>
             <div className="cart-total-details">
-              <p>KDV Oranı</p>
-              <p>% 20</p>
+              <p>KDV</p>
+              <p>{(getTotalCartAmount() * 0.18).toFixed(2)}</p>
             </div>
             <div className="cart-total-details">
               <p>Toplam</p>
 
-              <p>{(getTotalCartAmount() * 1.2).toFixed(2)} ₺</p>
+              <p>{getTotalCartAmount().toFixed(2)} ₺</p>
             </div>
           </div>
           <button>Ödeme Yap</button>
