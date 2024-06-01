@@ -9,7 +9,12 @@ const StoreContextProvider = (props) => {
     const [cartItems, setCartItems] = useState({});
     const url = "http://localhost:4000"
     const [token,setToken] = useState("");
-    const [currentId, SetCurrentId] = useState(null) //masa no için
+
+    const [currentId, setCurrentId] = useState(() => {
+        const savedId = localStorage.getItem("currentId");
+        return savedId !== null ? JSON.parse(savedId) : null;
+    }); // Masa no için
+
     const [food_list,setFoodList] = useState([])
     //console.log(masaNo)
 
@@ -66,6 +71,12 @@ const StoreContextProvider = (props) => {
         loadData();
     },[])
 
+    // masa no sabit kalması için, masa no saklamak.
+    useEffect(() => {
+        localStorage.setItem("currentId", JSON.stringify(currentId));
+    }, [currentId]);
+
+
     const contextValue = {
         food_list,
         cartItems,
@@ -77,7 +88,7 @@ const StoreContextProvider = (props) => {
         token,
         setToken,
         currentId,
-        SetCurrentId
+        setCurrentId
     }
 
     return (
