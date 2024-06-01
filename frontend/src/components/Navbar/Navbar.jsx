@@ -22,9 +22,9 @@ const Navbar = ({setShowLogin}) => {
 
   return (
     <div className='navbar'>
-        <Link to='/'><img src={assets.logo} alt="logo" className="logo" /></Link>
+        <Link to={`/masa/${currentId}`}><img src={assets.logo} alt="logo" className="logo" /></Link>
         <ul className="navbar-menu">
-            <Link to='/' onClick={()=>setMenu("home")} className={menu==="home"?"active":""}>Anasayfa</Link>
+            <Link to={`/masa/${currentId}`} onClick={()=>setMenu("home")} className={menu==="home"?"active":""}>Anasayfa</Link>
             <a href='#explore-menu' onClick={()=>setMenu("menu")} className={menu==="menu"?"active":""}>Menü</a>
             <a href='#app-download' onClick={()=>setMenu("mobile-app")} className={menu==="mobile-app"?"active":""}>Mobil-Uygulamamamız</a>
             <a href='#footer' onClick={()=>setMenu("contact-us")} className={menu==="contact-us"?"active":""}>iletişim</a>
