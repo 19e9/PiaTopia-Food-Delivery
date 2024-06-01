@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import "./PlaceOrder.css";
 import { StoreContext } from "../../context/StoreContext";
+import axios from "axios";
 
 const PlaceOrder = ({ currentId }) => {
   const { getTotalCartAmount, token, food_list, cartItems, url } =
@@ -22,11 +23,34 @@ const PlaceOrder = ({ currentId }) => {
 
   // bilgileri odeme sayfasına göndermek
   const placeOrder = async(event) => {
-    
+    event.preventDefault();
+    let orderItems = [];
+    food_list.map((item) =>{
+      if (cartItems[item._id] > 0 ) {
+        let itemInfo = item;
+        itemInfo["quantity"] = cartItems[item._id];
+        orderItems.push(itemInfo)
+      }
+    })
+    let orderData = {
+      masaNo:data.masaNo,
+      items:orderItems,
+      amount: getTotalCartAmount()
+    }
+    //console.log("Order Data:", orderData); // orderData'yı konsola yazdırıyoruz
+    let respone = await axios.post(url+"/api/order/place",orderData,{headers:{token}})
+    if (respone.data.success) {
+      const {session_url} = respone.data;
+      window.location.replace(session_url);
+    }
+    else{
+      alert("Sipariş işlemi başarısız oldu");
+    }
+
   }
 
   return (
-    <form className="place-order">
+    <form onSubmit={placeOrder} className="place-order">
       <div className="place-order-left">
         <p className="title">Sipariş Bilgileri</p>
         <div className="multi-fields">
@@ -111,7 +135,7 @@ const PlaceOrder = ({ currentId }) => {
               <p>{getTotalCartAmount().toFixed(2)} ₺</p>
             </div>
           </div>
-          <button>Ödeme Yap</button>
+          <button type='submit'>Ödeme Yap</button>
         </div>
       </div>
     </form>
