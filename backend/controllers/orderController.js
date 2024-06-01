@@ -63,5 +63,23 @@ const placeOrder = async (req,res) => {
 }
 
 
-export {placeOrder}
+const verifyOrder = async(req,res) =>{
+    const {orderId,success} = req.body;
+    try {
+        if (success==="true") {
+            await orderModel.findByIdAndUpdate(orderId,{payment:true});
+            res.json({success:true,message:"Ödeme Başarılı"})
+        }
+        else{
+            await orderModel.findByIdAndDelete(orderId);
+            res.json({success:false,message:"Ödemeniz iptal edilmiştir"})
+        }
+    } catch (error) {
+        console.log(error);
+        res.json({success:false,message:"Bir hata oluştu, lütfen daha sonra tekrar deneyiniz."})
+    }
+}
+
+
+export {placeOrder, verifyOrder}
 
