@@ -19,6 +19,7 @@ const loginUser = async (req, res) => {
         }
 
         const token = createToken(user._id)
+        //console.log(token);
         res.json({success:true,token})
     } catch (error) {
         console.log(error)
@@ -28,6 +29,7 @@ const loginUser = async (req, res) => {
 
     const createToken = (id) => {
         return jwt.sign({id},process.env.JWT_SECRET, { expiresIn: '30m' }); // 15 dakikalık erişim tokenı
+
     }
 
 // Register user
@@ -74,6 +76,7 @@ const registerUser = async (req, res) => {
 
         // Yeni kullanıcı için bir token oluştur
         const token = createToken(user._id)
+        
 
          // Token ile yanıt gönder
          res.json({success:true,token});
