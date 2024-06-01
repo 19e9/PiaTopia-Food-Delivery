@@ -80,6 +80,11 @@ const verifyOrder = async(req,res) =>{
     }
 }
 
+// Kullancı Sipariş Frontend
+const userOrder = async (req,res) => {
 
-export {placeOrder, verifyOrder}
+}
+
+
+export {placeOrder, verifyOrder,userOrder}
 
