@@ -7,6 +7,8 @@ import Footer from './components/Footer/Footer'
 import { Route, Routes } from 'react-router-dom'
 import LoginPopup from './components/LoginPopup/LoginPopup'
 import { StoreContext } from "./context/StoreContext";
+import Verify from './pages/Verify/Verify'
+import NotFound from './pages/NotFound/NotFound'
 
 const App = () => {
 
@@ -34,6 +36,9 @@ const App = () => {
           
           <Route path='/cart' element={<Cart />} />
           <Route path='/order' element={<PlaceOrder currentId={currentId} setCurrentId={setCurrentId}/>} />
+          <Route path='/verify' element={<Verify/>} />
+          <Route path='/404' element={<NotFound/>} />
+
         </Routes>
       </div>
       <Footer />
