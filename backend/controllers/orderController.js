@@ -7,7 +7,7 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY)
 // plscing user order for frontend 
 const placeOrder = async (req,res) => {
 
-    const frontend_url = "http://localhost:5173"
+    const frontend_url = "http://localhost:5174"
 
     try {
 
@@ -82,9 +82,37 @@ const verifyOrder = async(req,res) =>{
 
 // Kullancı Sipariş Frontend
 const userOrder = async (req,res) => {
+    try {
+        const orders = await orderModel.find({userId:req.body.userId});
+        res.json({success:true,data:orders})
+    } catch (error) {
+        console.log(error);
+        res.json({success:false,message:"Siparişler alınırken bir hata oluştu. Lütfen daha sonra tekrar deneyin !"})
+    }
+}
 
+// Admin paneli için butun siparişleri gösterme
+const listOrder = async (req,res) => {
+    try {
+        const orders = await orderModel.find({});
+        res.json({success:true,data:orders})
+    } catch (error) {
+        console.log(error);
+        res.json({success:false,message:"Hata !!!!"})
+    }
+} 
+
+// api sipariş durumunu değiştirme
+const updateStatus = async (req,res) => {
+    try {
+        await orderModel.findByIdAndUpdate(req.body.orderId,{status:req.body.status});
+        res.json({success:true,message:"Sipariş durumu başarıyla güncllendi."})
+    } catch (error) {
+        console.log(error);
+        res.json({success:false,message:"Hata oluştu, Sipariş durumu güncllenmedi."})
+    }
 }
 
 
-export {placeOrder, verifyOrder,userOrder}
+export {placeOrder, verifyOrder,userOrder,listOrder,updateStatus}
 
