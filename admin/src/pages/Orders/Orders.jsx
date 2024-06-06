@@ -57,8 +57,8 @@ const Orders = ({url}) => {
                 <p>{"Sipariş tutarı :" + order.amount} ₺</p>
                 <p>{"Ödeme durumu: " + (order.payment ? "Ödendi" : "Ödenmedi")}</p>
                 <select onChange={(event)=>statusHandler(event,order._id)} value={order.status}>
-                  <option value="Food Processing">Siparişiniz hazılanıyor</option>
-                  <option value="your order came to the table">Siparişiniz masaya geldi</option>
+                  <option value="Siparişiniz hazılanıyor">Siparişiniz hazılanıyor</option>
+                  <option value="Siparişiniz masaya geldi">Siparişiniz masaya geldi</option>
                 </select>
               </div>
             </div>

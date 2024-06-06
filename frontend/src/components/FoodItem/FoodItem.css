@@ -8,6 +8,8 @@
     box-shadow: 0px 0px 10px #00000015;
     transition: 0.3s;
     animation: fadeIn 1s;
+    flex: 1 1 300px; /* Kartların aynı boyutta olmasını sağlar */
+    overflow: hidden; /* Taşan içeriği gizler */
 }
 
 .food-item-image{
@@ -15,10 +17,12 @@
     border-radius: 15px 15px 0px 0px;
     /*  Bütün resimleri sabit bouyta alır w360 h280  */
     aspect-ratio: 9/7;
+    object-fit: cover; /* Resmi kartın boyutuna göre sığdırır */
 }
 
 .food-item-info{
     padding: 20px;
+    flex: 1; /* İçeriğin esnemesini sağlar */
 }
 
 .food-item-name-rating{
@@ -26,6 +30,12 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 10px;
+    min-height: 60px; /* Ürün adının yüksekliğini sabitler */
+    overflow: hidden; /* Taşan içeriği gizler */
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Görüntülenen satır sayısını ayarlar */
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis; /* Metnin taşmasını engeller */
 }
 
 .food-item-name-rating p{
@@ -40,6 +50,14 @@
 .food-item-desc{
     color: #676767;
     font-size: 12px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Görüntülenen satır sayısını iki satır olarak ayarlar */
+    -webkit-box-orient: vertical;
+    line-height: 1.2em; /* Satır yüksekliğini ayarlar */
+    max-height: 2.4em; /* İki satır yüksekliğini ayarlar (line-height * 2) */
+    min-height: 2.4em; /* İki satır yüksekliğini ayarlar (line-height * 2) */
 }
 
 .food-item-price{

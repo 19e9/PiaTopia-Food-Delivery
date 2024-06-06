@@ -5,7 +5,7 @@ const orderSchema = new mongoose.Schema({
     masaNo:{type:String,required:true},
     items:{type:Array,required:true},
     amount:{type:Number,required:true},
-    status:{type:String,default:"Yemek hazırlanıyor"},
+    status:{type:String,default:"Siparişiniz alındı."},
     date:{type:Date,default:Date.now()},
     payment:{type:Boolean,default:false}
 })
